@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Reportes V2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="textoReportar">Reportar</string>
+    <string name="title_activity_login">Reportes Login</string>
+    <string name="prompt_email">Correo</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Bienvenido !"</string>
+    <string name="invalid_username">Usuario invalido</string>
+    <string name="invalid_password">La contraseña debe tener mas de 5 caracteres</string>
+    <string name="login_failed">"Fallo de conexión"</string>
+    <string name="texto_poste">Poste</string>
+    <string name="texto_medidor">Medidor</string>
+    <string name="texto_frenteCalle">Frente de Calle</string>
+    <string name="txt_cancelar">Cancelar</string>
+    <string name="txt_enviar">Enviar</string>
+
+    <dimen name="textoTitulos">18sp</dimen>
+    <dimen name="textoNormal">14sp</dimen>
+
+    <string name="cerrar_session">Cerrar Sesión</string>
+
+    <string name="urlServidor">http://reportesv2.infinit.com.mx/webServiceReportes.php</string>
+
+    <string name="default_user_name">Mi nombre de usuario</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="texto_numeroPoste">Número de Poste</string>
+    <string name="texto_propietarioPoste">Propietario</string>
+    <string name="texto_usoPoste">Uso</string>
+    <string name="texto_estadoPoste">Estado</string>
+    <string name="texto_numeroMedidor">Número de Medidor</string>
+    <string name="texto_ubicacionMedidor">Ubicación</string>
+    <string name="texto_calleFrenteCalle">Calle</string>
+    <string name="texto_numeroCalleFrenteCalle">Número de Calle</string>
+    <string name="texto_coloniaFrenteCalle">Colonia</string>
+</resources>

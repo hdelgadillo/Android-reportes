@@ -13,5 +13,5 @@
     <string name="textoPoste">Postes</string>
 
     <!--<string name="urlServidor">http://reportesv2.infinit.com.mx/webServiceReportes.php</string>-->
-    <string name="urlServidor">http://jre.geoportal.mx/webServiceReportes.php</string>
+    <string name="urlServidor">http://jre.geoportal.mx/webServiceReportes1.php</string>
 </resources>

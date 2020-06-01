@@ -4,62 +4,20 @@ import android.graphics.Bitmap;
 
 public class Reportes {
     private Integer idReporte;
-    private String latitud;
-    private String longitud;
+    private String claveCatastral;
+    private String folioCatastral;
     private String tiempo;
-    private String ruta;
-    private String tipoReporte;
-    private String numPoste;
-    private String propPoste;
-    private String usoPoste;
-    private String estadoPoste;
+    private String tipovisita;
+    private String urlFotos;
 
-    public String getTipoReporte() {
-        return tipoReporte;
+
+
+    public String getTipovisita() {
+        return tipovisita;
     }
 
-    public void setTipoReporte(String tipoReporte) {
-        this.tipoReporte = tipoReporte;
-    }
-
-    public String getNumPoste() {
-        return numPoste;
-    }
-
-    public void setNumPoste(String numPoste) {
-        this.numPoste = numPoste;
-    }
-
-    public String getPropPoste() {
-        return propPoste;
-    }
-
-    public void setPropPoste(String propPoste) {
-        this.propPoste = propPoste;
-    }
-
-    public String getUsoPoste() {
-        return usoPoste;
-    }
-
-    public void setUsoPoste(String usoPoste) {
-        this.usoPoste = usoPoste;
-    }
-
-    public String getEstadoPoste() {
-        return estadoPoste;
-    }
-
-    public void setEstadoPoste(String estadoPoste) {
-        this.estadoPoste = estadoPoste;
-    }
-
-    public String getRuta() {
-        return ruta;
-    }
-
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
+    public void setTipoVisita(String TipoVisita) {
+        this.tipovisita = TipoVisita;
     }
 
     public Integer getIdReporte() {
@@ -70,27 +28,43 @@ public class Reportes {
         this.idReporte = idReporte;
     }
 
-    public String getLatitud() {
-        return latitud;
+    public String getClaveCatastral() {
+        return claveCatastral;
     }
 
-    public void setLatitud(String latitud) {
-        this.latitud = latitud;
+    public void setClaveCatastral(String ClaveCatastral) {
+        this.claveCatastral = ClaveCatastral;
     }
 
-    public String getLongitud() {
-        return longitud;
+    public String getFolioCatastral() {
+        return folioCatastral;
     }
 
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
+    public void setFolioCatastral(String FolioCatastral) {
+        this.folioCatastral = FolioCatastral;
     }
 
     public String getTiempo() {
         return tiempo;
     }
 
+
+
     public void setTiempo(String tiempo) {
         this.tiempo = tiempo;
     }
+
+    public String getUrlFotos() {
+        return urlFotos;
+    }
+
+
+
+    public void setUrlFotos(String urlFotos) {
+        this.urlFotos = urlFotos;
+    }
+
+
+
+
 }

@@ -85,7 +85,7 @@
                     android:text="Clave catastral:" />
 
                 <com.santalu.maskedittext.MaskEditText
-                    android:id="@+id/tb_numPostes"
+                    android:id="@+id/tb_clave_catastral"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -106,7 +106,7 @@
                     android:text="Folio Catastral: " />
 
                 <EditText
-                    android:id="@+id/tb_propietario"
+                    android:id="@+id/tb_Folio_Cat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

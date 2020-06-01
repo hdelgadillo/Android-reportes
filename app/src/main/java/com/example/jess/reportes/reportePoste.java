@@ -28,15 +28,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
+//import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -76,8 +81,11 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
     public String enviaLatitud = "", enviaLongitud = "";
     public String imagenString="";
 
-    private EditText tbNumPostes, tbPropietario, tbUso;
-    private RadioButton rbExcelente, rbRegular, rbDeplorable;
+
+    private EditText tbClaveCatastral, tbFolioCatastral, tbUso;
+    private Spinner spinner;
+
+   // private RadioButton rbExcelente, rbRegular, rbDeplorable;
     //----------------------------------------------
 
     //--------------JSON para respuestas desde el webService----------
@@ -129,12 +137,16 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
         tvLon = (TextView) findViewById(R.id.tvLongitud);
         nLocationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
-        tbNumPostes = (EditText) findViewById(R.id.tb_numPostes);
-        tbPropietario = (EditText) findViewById(R.id.tb_propietario);
-       // tbUso = (EditText) findViewById(R.id.tb_uso);
+        tbClaveCatastral = (EditText) findViewById(R.id.tb_clave_catastral);
+        tbFolioCatastral = (EditText) findViewById(R.id.tb_Folio_Cat);
+
+        spinner = (Spinner)findViewById(R.id.sp01);
+
+
+        // tbUso = (EditText) findViewById(R.id.tb_uso);
         //rbExcelente = (RadioButton) findViewById(R.id.rb_Excelente);
-       // rbRegular = (RadioButton) findViewById(R.id.rb_Regular);
-       // rbDeplorable = (RadioButton) findViewById(R.id.rb_Deplorable);
+        // rbRegular = (RadioButton) findViewById(R.id.rb_Regular);
+        // rbDeplorable = (RadioButton) findViewById(R.id.rb_Deplorable);
 
         //--------------------------------------------------------
 
@@ -165,8 +177,8 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
     //----------------metodo del boton ENVIAR---------------
     private void llamarEnviarReporte(final String miUsuario) {
         ///---++++++++++++++++++++++++++++++++++++para metodo POST +++++++++++++++++++++++++++++++++++++++++++++++
-        String url = getString(R.string.urlServidor);//servidor remoto
-        //String url="http://192.168.1.69/reportesPrueba/webServiceReportes.php";//servidor de prueba casa
+        String url = "http://jre.geoportal.mx/webServiceReportes1.php";//servidor remoto
+        //String url="http://192.168.1.69/reportesPrueba/webServiceReportes1.php";//servidor de prueba casa
 
         final String fecha = ObtenerFecha();
         mostrarMensajeEmergente("enviando");
@@ -191,6 +203,20 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(),"No se pudo conectar",Toast.LENGTH_SHORT).show();
                 mostrarMensajeEmergente("esconder");
+
+                if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                    Toast.makeText(getApplicationContext(), "Communication Error!", Toast.LENGTH_SHORT).show();
+
+                } else if (error instanceof AuthFailureError) {
+                    Toast.makeText(getApplicationContext(), "Authentication Error!", Toast.LENGTH_SHORT).show();
+                } else if (error instanceof ServerError) {
+                    Toast.makeText(getApplicationContext(), "Server Side Error!", Toast.LENGTH_SHORT).show();
+                } else if (error instanceof NetworkError) {
+                    Toast.makeText(getApplicationContext(), "Network Error!", Toast.LENGTH_SHORT).show();
+                } else if (error instanceof ParseError) {
+                    Toast.makeText(getApplicationContext(), "Parse Error!", Toast.LENGTH_SHORT).show();
+
+                }
             }
         }){
 
@@ -207,10 +233,11 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
 
                 String tipoReporte = "POSTES";
 
-                String numPostes = tbNumPostes.getText().toString();
-                String propietario = tbPropietario.getText().toString();
-                String uso = tbUso.getText().toString();
-                String estado = "";
+                String ClaveCatastral = tbClaveCatastral.getText().toString();
+                String FolCat = tbFolioCatastral.getText().toString();
+                String visita = spinner.getSelectedItem().toString();
+
+              /*  String estado = "";
 
                 if(rbExcelente.isChecked()){
                     estado = "Excelente";
@@ -221,20 +248,17 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
                 if(rbDeplorable.isChecked()){
                     estado = "Deplorable";
                 }
-
+*/
 
                 //--alimentando los parametros que se enviaran por metodo POST
                 Map<String,String> parametros = new HashMap<>();
                 parametros.put("datoUsuario",miUsuario);
-                parametros.put("latitud",latitudString);
-                parametros.put("longitud",longitudString);
+                parametros.put("claveCatastral",ClaveCatastral);
+                parametros.put("FolioC",FolCat);
+                parametros.put("motivo",visita);
                 parametros.put("nombre",nombreFoto);
-                parametros.put("tipoReporte",tipoReporte);
-                parametros.put("numPostes",numPostes);
-                parametros.put("propietario",propietario);
-                parametros.put("uso",uso);
-                parametros.put("estado",estado);
                 parametros.put("foto",imagenString);
+                parametros.put("tiempo", fecha);
 
                 return parametros;
             }

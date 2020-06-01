@@ -53,7 +53,7 @@ public class consultaActivity extends AppCompatActivity implements Response.List
 
     private void cargarWebService(final String miUsuario){
         //String url="http://reportesv2.infinit.com.mx/consultaReporte.php?datoUsuario="+miUsuario;
-        String url="http://jre.geoportal.mx/consultaReporte.php?datoUsuario="+miUsuario;
+        String url="http://jre.geoportal.mx/consultaReporte1.php?datoUsuario="+miUsuario;
 
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         solicitud.add(jsonObjectRequest);
@@ -71,7 +71,7 @@ public class consultaActivity extends AppCompatActivity implements Response.List
         Reportes reporte = null;
         listaReportes = new ArrayList<>();
 
-        JSONArray json = response.optJSONArray("reportes");
+        JSONArray json = response.optJSONArray("catastral");
 
         try {
             for (int i = 0; i < json.length(); i++) {
@@ -80,15 +80,11 @@ public class consultaActivity extends AppCompatActivity implements Response.List
                 jsonObject = json.getJSONObject(i);
 
                 reporte.setIdReporte(jsonObject.optInt("idReporte"));
-                reporte.setLatitud(jsonObject.optString("latitud"));
-                reporte.setLongitud(jsonObject.optString("longitud"));
+                reporte.setClaveCatastral(jsonObject.optString("clave_catastral"));
+                reporte.setFolioCatastral(jsonObject.optString("folio_catastral"));
                 reporte.setTiempo(jsonObject.optString("tiempo"));
-                reporte.setTipoReporte(jsonObject.optString("tipoReporte"));
-                reporte.setNumPoste(jsonObject.optString("numPostes"));
-                reporte.setPropPoste(jsonObject.optString("propietarioPostes"));
-                reporte.setUsoPoste(jsonObject.optString("usoPostes"));
-                reporte.setEstadoPoste(jsonObject.optString("estadoPostes"));
-                reporte.setRuta(jsonObject.optString("urlFoto"));
+                reporte.setTipoVisita(jsonObject.optString("tipo_visita"));
+                reporte.setUrlFotos(jsonObject.optString("url_fotos"));
 
                 listaReportes.add(reporte);
             }//fin for

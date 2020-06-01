@@ -46,18 +46,15 @@ public class adaptadorReportes extends RecyclerView.Adapter<adaptadorReportes.ad
     @Override
     public void onBindViewHolder(@NonNull adaptadorHolder holder, int posicion) {
         holder.txtIdReporte.setText(listaReporte.get(posicion).getIdReporte().toString());
-        holder.txtLatitud.setText(listaReporte.get(posicion).getLatitud().toString());
-        holder.txtLongitud.setText(listaReporte.get(posicion).getLongitud().toString());
+        holder.txtClaveCatastral.setText(listaReporte.get(posicion).getClaveCatastral().toString());
+        holder.txtFolioCatastral.setText(listaReporte.get(posicion).getFolioCatastral().toString());
         holder.txtTiempo.setText(listaReporte.get(posicion).getTiempo().toString());
-        holder.txtTipoReporte.setText(listaReporte.get(posicion).getTipoReporte().toString());
-        holder.txtNumPoste.setText(listaReporte.get(posicion).getNumPoste().toString());
-        holder.txtPropietarioPoste.setText(listaReporte.get(posicion).getPropPoste().toString());
-        holder.txtUsoPoste.setText(listaReporte.get(posicion).getUsoPoste().toString());
-        holder.txtEstadoPoste.setText(listaReporte.get(posicion).getEstadoPoste().toString());
+        holder.txtTipoVisita.setText(listaReporte.get(posicion).getTipovisita().toString());
 
-        if(listaReporte.get(posicion).getRuta() !=null){
 
-            cargarImagenWebService(listaReporte.get(posicion).getRuta(), holder);
+        if(listaReporte.get(posicion).getUrlFotos() !=null){
+
+            cargarImagenWebService(listaReporte.get(posicion).getUrlFotos(), holder);
 
         }else{
             holder.imageView.setImageResource(R.drawable.ic_monochrome_photos_black_24dp);
@@ -93,21 +90,18 @@ public class adaptadorReportes extends RecyclerView.Adapter<adaptadorReportes.ad
 
     public class adaptadorHolder extends RecyclerView.ViewHolder{
 
-        TextView txtIdReporte, txtLatitud, txtLongitud, txtTiempo, txtTipoReporte, txtNumPoste, txtPropietarioPoste, txtUsoPoste, txtEstadoPoste;
+        TextView txtIdReporte, txtClaveCatastral,  txtTiempo,txtFolioCatastral, txtTipoVisita;
         ImageView imageView;
 
         public adaptadorHolder(View itemView) {
             super(itemView);
             txtIdReporte = (TextView) itemView.findViewById(R.id.txtIdReporte);
-            txtLatitud = (TextView) itemView.findViewById(R.id.txtLatitud);
-            txtLongitud = (TextView) itemView.findViewById(R.id.txtLongitud);
+            txtClaveCatastral = (TextView) itemView.findViewById(R.id.txtClaveCatastral);
+            txtFolioCatastral = (TextView) itemView.findViewById(R.id.txtFolioCatastral);
             txtTiempo = (TextView) itemView.findViewById(R.id.txtTiempo);
 
-            txtTipoReporte = (TextView) itemView.findViewById(R.id.txtTipo);
-            txtNumPoste = (TextView) itemView.findViewById(R.id.txtNumero);
-            txtPropietarioPoste = (TextView) itemView.findViewById(R.id.txtPropietario);
-            txtUsoPoste = (TextView) itemView.findViewById(R.id.txtUso);
-            txtEstadoPoste = (TextView) itemView.findViewById(R.id.txtEstado);
+            txtTipoVisita = (TextView) itemView.findViewById(R.id.txtTipoVisita);
+
 
             imageView = (ImageView) itemView.findViewById(R.id.imgReporte);
         }

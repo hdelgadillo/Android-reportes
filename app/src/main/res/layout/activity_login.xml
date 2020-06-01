@@ -24,47 +24,47 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Correo:"
-                android:textStyle="bold"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="30dp">
+
 
             <EditText
                 android:id="@+id/tbUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Ingrese Usuario"
                 android:inputType="textEmailAddress" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Contraseña:"
-                android:textStyle="bold"/>
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.03"
+            app:passwordToggleEnabled="true">
 
             <EditText
+
                 android:id="@+id/tbContra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPassword"
+                android:hint="Ingrese Password"
+
                 />
 
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <CheckBox
@@ -86,6 +86,8 @@
             android:textColor="#fff"
             android:textSize="18dp"
             android:textStyle="bold" />
+
+
 
     </LinearLayout>
 

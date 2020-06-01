@@ -24,10 +24,12 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,7 +54,7 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
     ImageView imagenFoto;
     Button btnCapturar;
     Button btnEnviar;
-
+    Spinner  opciones;
     private String datoUsuario; //varaible que obtendra el valor del cache del usuario
 
     //------------------------------------------
@@ -88,6 +90,10 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporte_poste);
+
+        opciones =(Spinner) findViewById(R.id.sp01);
+        ArrayAdapter<CharSequence> adapter =  ArrayAdapter.createFromResource(this,R.array.opciones,android.R.layout.simple_spinner_item);
+        opciones.setAdapter(adapter);
 
         datoUsuario = Preferencias.obtenerPreferenciaString(this,Preferencias.PREFERENCIA_USUARIO_LOGIN);//se obtiene el valor del cache del usuario
 
@@ -125,10 +131,10 @@ public class reportePoste extends AppCompatActivity implements LocationListener 
 
         tbNumPostes = (EditText) findViewById(R.id.tb_numPostes);
         tbPropietario = (EditText) findViewById(R.id.tb_propietario);
-        tbUso = (EditText) findViewById(R.id.tb_uso);
-        rbExcelente = (RadioButton) findViewById(R.id.rb_Excelente);
-        rbRegular = (RadioButton) findViewById(R.id.rb_Regular);
-        rbDeplorable = (RadioButton) findViewById(R.id.rb_Deplorable);
+       // tbUso = (EditText) findViewById(R.id.tb_uso);
+        //rbExcelente = (RadioButton) findViewById(R.id.rb_Excelente);
+       // rbRegular = (RadioButton) findViewById(R.id.rb_Regular);
+       // rbDeplorable = (RadioButton) findViewById(R.id.rb_Deplorable);
 
         //--------------------------------------------------------
 

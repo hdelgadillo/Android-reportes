@@ -82,15 +82,16 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Número de Poste:" />
+                    android:text="Clave catastral:" />
 
-                <EditText
+                <com.santalu.maskedittext.MaskEditText
                     android:id="@+id/tb_numPostes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    app:met_mask="####-###-####-######"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,7 +103,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Propietario: " />
+                    android:text="Folio Catastral: " />
 
                 <EditText
                     android:id="@+id/tb_propietario"
@@ -110,65 +111,31 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:text="" />
             </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp">
 
-                <TextView
-                    android:id="@+id/tv_Uso"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Uso: " />
 
-                <EditText
-                    android:id="@+id/tb_uso"
+                <TextView
+                    android:id="@+id/tvTitulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="" />
-            </LinearLayout>
+                    android:layout_marginTop="25dp"
+                    android:text="Tipo de visita:" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20sp">
-
-
-                <RadioGroup
+                <Spinner
+                    android:id="@+id/sp01"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/rb_Excelente"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Excelente"
-                        android:checked="true"
-                        />
+                    android:layout_height="50dp"
+                    android:layout_margin="15dp" />
 
-                    <RadioButton
-                        android:id="@+id/rb_Regular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Regular" />
-
-                    <RadioButton
-                        android:id="@+id/rb_Deplorable"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Deplorable" />
-                </RadioGroup>
             </LinearLayout>
 
 

@@ -23,8 +23,11 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +75,7 @@ public class reporteActivity extends AppCompatActivity implements LocationListen
     private TextView tvLat, tvLon, tvFecha;
     public String enviaLatitud = "", enviaLongitud = "";
     public String imagenString="";
+
     //----------------------------------------------
 
     //--------------JSON para respuestas desde el webService----------
@@ -84,6 +88,8 @@ public class reporteActivity extends AppCompatActivity implements LocationListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporte);
+
+
 
         datoUsuario = Preferencias.obtenerPreferenciaString(this,Preferencias.PREFERENCIA_USUARIO_LOGIN);//se obtiene el valor del cache del usuario
 
@@ -132,7 +138,11 @@ public class reporteActivity extends AppCompatActivity implements LocationListen
 
 
         //tvFecha.setText(ObtenerFecha());
+
+
     }
+
+
 
     // METODO PARA OBTENER FECHA Y HROA
     private String ObtenerFecha(){
@@ -239,6 +249,9 @@ public class reporteActivity extends AppCompatActivity implements LocationListen
                 break;
         }
     }
+
+
+
 //----------------------fin metodo mensajes emergentes
 
     // nuevo metodo para la camara

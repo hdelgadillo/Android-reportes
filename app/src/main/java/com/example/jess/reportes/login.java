@@ -143,10 +143,7 @@ public class login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Parse Error!", Toast.LENGTH_SHORT).show();
 
                 }
-                Intent entrar = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(entrar); //estas 2 lineas hacen que se habra otro Activity o Ventana en este caso el Menu de inicio
 
-                finish(); //termina la ventana de LOGIN
             }
 
 
